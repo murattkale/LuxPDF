@@ -8,10 +8,13 @@ export default defineConfig({
   build: {
     target: 'esnext',
     cssCodeSplit: false,
+    // pdf.js / pdf-lib are large by nature; split them and raise the noise floor
+    chunkSizeWarningLimit: 1600,
     rollupOptions: {
       output: {
-        manualChunks: {
-          pdf: ['pdf-lib', 'pdfjs-dist'],
+        manualChunks(id) {
+          if (id.includes('pdfjs-dist')) return 'pdfjs';
+          if (id.includes('pdf-lib')) return 'pdf-lib';
         },
       },
     },

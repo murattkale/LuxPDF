@@ -1,9 +1,9 @@
 import * as pdfjs from 'pdfjs-dist';
 import { getPdfJsDoc } from './pdf-engine.js';
 import { state, getPageAnnos, uid, pushHistory } from './state.js';
+import { textItemCache, clearTextCache } from './text-cache.js';
 
-/** @type {Map<number, NativeTextItem[]>} */
-const cache = new Map();
+export { clearTextCache };
 
 /**
  * @typedef {Object} NativeTextItem
@@ -18,12 +18,8 @@ const cache = new Map();
  * @property {string} [fontName]
  */
 
-export function clearTextCache() {
-  cache.clear();
-}
-
 export async function getPageTextItems(pageNum) {
-  if (cache.has(pageNum)) return cache.get(pageNum);
+  if (textItemCache.has(pageNum)) return textItemCache.get(pageNum);
   const pdf = await getPdfJsDoc();
   const page = await pdf.getPage(pageNum);
   const viewport = page.getViewport({ scale: 1 });
@@ -55,7 +51,7 @@ export async function getPageTextItems(pageNum) {
   }
 
   const merged = mergeLineItems(raw);
-  cache.set(pageNum, merged);
+  textItemCache.set(pageNum, merged);
   return merged;
 }
 

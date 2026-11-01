@@ -2,6 +2,7 @@ import * as pdfjs from 'pdfjs-dist';
 import pdfWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import { PDFDocument, rgb, degrees, StandardFonts, PageSizes } from 'pdf-lib';
 import { state, resetDocumentState, getPageAnnos } from './state.js';
+import { clearTextCache } from './text-cache.js';
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker;
 
@@ -25,8 +26,8 @@ export async function loadPdfFromBytes(bytes, fileName = 'document.pdf') {
     try { await loadingTask.destroy(); } catch { /* ignore */ }
   }
   thumbCache.clear();
+  clearTextCache();
   resetDocumentState();
-  import('./text-layer.js').then((m) => m.clearTextCache()).catch(() => {});
 
   const copy = bytes instanceof Uint8Array ? bytes.slice() : new Uint8Array(bytes);
   state.pdfBytes = copy;
