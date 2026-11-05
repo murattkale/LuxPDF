@@ -1,6 +1,6 @@
-# LuxPDF
+# LuxTools
 
-Tarayıcıda çalışan, veritabanı gerektirmeyen premium PDF düzenleyici.
+Tarayıcıda çalışan, veritabanı gerektirmeyen premium araç seti. PDF düzenleme, sıkıştırma, birleştirme ve dönüştürme.
 
 ## Canlı
 
@@ -13,23 +13,22 @@ npm install
 npm run dev
 ```
 
-Üretim derlemesi:
+Üretim:
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Özellikler
+## Araçlar
 
-- PDF yükleme / boş belge / HTML içe aktarma
-- Metin, kalem, vurgulama, şekiller, ok, yapışkan not
-- Görsel, imza, damga, karartma, silgi
-- Sayfa döndürme, ekleme, silme, çoğaltma
-- PDF birleştirme, sayfa ayırma / çıkarma
-- Filigran ve sayfa numarası
-- PDF + HTML export
-- Undo/redo, zoom, responsive arayüz
-- Tercihler `localStorage` içinde (sunucu yok)
+| Araç | Rota |
+|---|---|
+| Katalog | `#/` |
+| PDF Düzenleyici | `#/tools/pdf-editor` |
+| PDF Sıkıştır | `#/tools/pdf-compress` |
+| PDF Birleştir | `#/tools/pdf-merge` |
+| JPG → PDF | `#/tools/jpg-to-pdf` |
+| PDF → JPG | `#/tools/pdf-to-jpg` |
 
-Her şey istemci tarafında çalışır: `pdf.js` + `pdf-lib`.
+Hepsi istemci tarafında çalışır (`pdf.js`, `pdf-lib`, `jszip`).

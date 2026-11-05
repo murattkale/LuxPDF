@@ -1,5 +1,5 @@
 {
-  "name": "lux-pdf-editor",
+  "name": "lux-tools",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "jszip": "^3.10.2",
     "pdf-lib": "^1.17.1",
     "pdfjs-dist": "^4.10.38"
   },

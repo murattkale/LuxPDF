@@ -59,6 +59,7 @@ export const icons = {
   addPage: svg(r(7, 4, 10, 16, 1.5) + l(12, 10, 12, 16) + l(9, 13, 15, 13)),
   deletePage: svg(r(7, 4, 10, 16, 1.5) + l(10, 11, 14, 15) + l(14, 11, 10, 15)),
   merge: svg(p('M8 7h4a4 4 0 010 8H8') + p('M16 7h-1') + p('M16 15h-1') + p('M8 7V5') + p('M8 15v2')),
+  compress: svg(p('M12 4v16') + p('M8 8l4-4 4 4') + p('M8 16l4 4 4-4') + p('M5 12h14')),
   split: svg(p('M8 5v14') + p('M16 5v14') + l(8, 12, 16, 12)),
   watermark: svg(c(12, 12, 8) + p('M8.5 12.5l2.2 2.2 4.8-5')),
   number: svg(r(6, 5, 12, 14, 2) + p('M10 9h4') + p('M10 13h4') + p('M10 17h2')),
